@@ -148,6 +148,13 @@ void registrarVenta() {
         cout << "Producto no encontrado.\n";
     }
 }
+void listarVentas() {
+    cout << "\nLista de ventas realizadas:\n";
+    for (int i = 0; i < numVentas; i++) {
+        cout << "ID Venta: " << ventas[i].idVenta << ", Producto: " << ventas[i].producto
+             << ", Cantidad: " << ventas[i].cantidad << ", Precio Total: " << ventas[i].precioTotal << endl;
+    }
+}
 
 int main() 
 {
@@ -160,6 +167,7 @@ int main()
         cout << "D: Actualizar los datos de un producto\n";
         cout << "E: Eliminar un producto\n";
         cout << "F: Registrar una venta\n";
+        cout << "G: Listar las ventas realizadas\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -189,6 +197,10 @@ int main()
                 case 'F':
             case 'f':
                 registrarVenta();
+                break;
+                case 'G':
+            case 'g':
+                listarVentas();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
