@@ -176,6 +176,7 @@ int main()
         cout << "F: Registrar una venta\n";
         cout << "G: Listar las ventas realizadas\n";
         cout << "H: Calcular el total de ventas realizadas\n";
+        cout<<"S: Salir del programa\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -213,6 +214,13 @@ int main()
                 case 'H':
             case 'h':
                 calcularTotalVentas();
+                break;
+                case 'S':
+            case 's':
+                cout<<"Saliendo del programa.\n";
+                break;
+            default:
+                cout<<"Opción no válida. Intente de nuevo.\n";
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
