@@ -93,6 +93,30 @@ void actualizarProducto() {
         cout<<"Producto no encontrado.\n";
     }
 }
+void eliminarProducto() {
+    string nombre;
+    cout << "Ingrese el nombre del producto a eliminar: ";
+    cin.ignore();
+    getline(cin, nombre);
+
+    int aux=-1;
+    for (int i=0; i<numProductos;i++) {
+        if (productos[i].nombre==nombre) {
+            aux= i;
+            break;
+        }
+    }
+
+    if (aux!=-1) {
+        for (int i=aux; i < numProductos - 1; i++) {
+            productos[i] = productos[i + 1];
+        }
+        numProductos--;
+        cout << "Producto eliminado exitosamente.\n";
+    } else {
+        cout << "Producto no encontrado.\n";
+    }
+}
 
 int main() 
 {
@@ -103,6 +127,7 @@ int main()
         cout<<"B: Listar los productos registrados\n";
         cout << "C: Buscar un producto por nombre\n";
         cout << "D: Actualizar los datos de un producto\n";
+        cout << "E: Eliminar un producto\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -124,6 +149,10 @@ int main()
                 case 'D':
             case 'd':
                 actualizarProducto();
+                break;
+                case 'E':
+            case 'e':
+                eliminarProducto();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
