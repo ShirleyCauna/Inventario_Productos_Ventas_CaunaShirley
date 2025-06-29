@@ -48,6 +48,25 @@ void listarProductos() {
         cout<<"Nombre: "<< productos[i].nombre<< ", Precio: "<<productos[i].precio<<endl;
     }
 }
+void buscarProducto() {
+    string nombre;
+    cout<<"Ingrese el nombre del producto a buscar: ";
+    cin.ignore();
+    getline(cin, nombre);
+
+    bool encontrado = false;
+    for (int i = 0; i < numProductos; i++) {
+        if (productos[i].nombre==nombre) {
+            cout << "Producto encontrado: Nombre: "<<productos[i].nombre<<", Precio: "<<productos[i].precio<<endl;
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        cout<<"Producto no encontrado.\n";
+    }
+}
 
 int main() 
 {
@@ -56,7 +75,9 @@ int main()
         cout<<"Menu:";
         cout<<"A: Registrar un nuevo producto\n";
         cout<<"B: Listar los productos registrados\n";
+        cout << "C: Buscar un producto por nombre\n";
         cout<<"Seleccione una opcion: ";
+        
         cin>>opcion;
 
         switch (opcion) 
@@ -68,6 +89,10 @@ int main()
                 case 'B':
             case 'b':
                 listarProductos();
+                break;
+                 case 'C':
+            case 'c':
+                buscarProducto();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
