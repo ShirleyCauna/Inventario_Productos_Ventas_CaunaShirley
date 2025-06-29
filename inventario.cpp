@@ -155,6 +155,13 @@ void listarVentas() {
              << ", Cantidad: " << ventas[i].cantidad << ", Precio Total: " << ventas[i].precioTotal << endl;
     }
 }
+void calcularTotalVentas() {
+    float totalVentas=0;
+    for (int i=0; i<numVentas; i++) {
+        totalVentas+=ventas[i].precioTotal;
+    }
+    cout<<"El total de ventas realizadas es: "<<totalVentas<<endl;
+}
 
 int main() 
 {
@@ -168,6 +175,7 @@ int main()
         cout << "E: Eliminar un producto\n";
         cout << "F: Registrar una venta\n";
         cout << "G: Listar las ventas realizadas\n";
+        cout << "H: Calcular el total de ventas realizadas\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -201,6 +209,10 @@ int main()
                 case 'G':
             case 'g':
                 listarVentas();
+                break;
+                case 'H':
+            case 'h':
+                calcularTotalVentas();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
