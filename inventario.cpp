@@ -68,6 +68,32 @@ void buscarProducto() {
     }
 }
 
+void actualizarProducto() {
+    string nombre;
+    cout << "Ingrese el nombre del producto a actualizar: ";
+    cin.ignore();
+    getline(cin, nombre);
+
+    int aux=-1;
+    for (int i=0;i<numProductos;i++) {
+        if (productos[i].nombre==nombre) {
+            aux=i;
+            break;
+        }
+    }
+
+    if (aux!=-1) {
+        cout << "Producto encontrado. Ingrese los nuevos datos.\n";
+        cout << "Nuevo nombre: ";
+        getline(cin, productos[aux].nombre);
+        cout<<"Nuevo precio: ";
+        cin>>productos[aux].precio;
+        cout<<"Producto actualizado exitosamente.\n";
+    } else {
+        cout<<"Producto no encontrado.\n";
+    }
+}
+
 int main() 
 {
     char opcion;
@@ -76,6 +102,7 @@ int main()
         cout<<"A: Registrar un nuevo producto\n";
         cout<<"B: Listar los productos registrados\n";
         cout << "C: Buscar un producto por nombre\n";
+        cout << "D: Actualizar los datos de un producto\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -93,6 +120,10 @@ int main()
                  case 'C':
             case 'c':
                 buscarProducto();
+                break;
+                case 'D':
+            case 'd':
+                actualizarProducto();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
