@@ -1,3 +1,20 @@
+/* 2. Inventario de Productos y Ventas
+Objetivo: Desarrollar un programa que permita registrar, listar, buscar, actualizar y eliminar productos, así como gestionar las ventas.
+Requisitos:
+• Define una estructura Producto con los campos: nombre (cadena), precio (flotante).
+• Define una estructura Venta con los campos: idVenta (entero), producto (cadena), cantidad (entero), precioTotal (flotante).
+• Implementa un menú con las siguientes opciones:
+A: Registrar un nuevo producto.
+B: Listar los productos registrados.
+C: Buscar un producto por nombre.
+D: Actualizar los datos de un producto.
+E: Eliminar un producto.
+F: Registrar una venta.
+G: Listar las ventas realizadas.
+H: Calcular el total de ventas realizadas.
+S: Salir del programa.
+• El menú debe estar ciclado y permitir volver al menú principal después de cada opción.*/
+
 #include <iostream>
 #include <string>
 using namespace std;
