@@ -117,6 +117,37 @@ void eliminarProducto() {
         cout << "Producto no encontrado.\n";
     }
 }
+void registrarVenta() {
+    if (numVentas >= MAX_VENTAS) {
+        cout<<"No se pueden registrar más ventas. El límite ha sido alcanzado.\n";
+        return;
+    }
+
+    Venta v;
+    cout<<"Ingrese el nombre del producto vendido: ";
+    cin.ignore();
+    getline(cin, v.producto);
+
+    bool encontrado=false;
+    for (int i=0;i<numProductos; i++) {
+        if (productos[i].nombre == v.producto) {
+            cout<<"Ingrese la cantidad vendida: ";
+            cin>>v.cantidad;
+
+            v.precioTotal=productos[i].precio*v.cantidad;
+            v.idVenta=idVentaCounter++;
+
+            ventas[numVentas++] = v;
+            cout<<"Venta registrada exitosamente.\n";
+            encontrado=true;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "Producto no encontrado.\n";
+    }
+}
 
 int main() 
 {
@@ -128,6 +159,7 @@ int main()
         cout << "C: Buscar un producto por nombre\n";
         cout << "D: Actualizar los datos de un producto\n";
         cout << "E: Eliminar un producto\n";
+        cout << "F: Registrar una venta\n";
         cout<<"Seleccione una opcion: ";
         
         cin>>opcion;
@@ -153,6 +185,10 @@ int main()
                 case 'E':
             case 'e':
                 eliminarProducto();
+                break;
+                case 'F':
+            case 'f':
+                registrarVenta();
                 break;
                  }
     } while(opcion !='S'&&opcion!='s');
